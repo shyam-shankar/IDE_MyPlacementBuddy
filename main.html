@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPlacementBuddy - Code Editor</title>
+    <meta name="description" content="AI-powered coding interview platform with real-time code editor">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <div class="logo">
+                <div class="logo-icon">
+                    <span>D</span>
+                </div>
+                <span class="logo-text">MyPlacementBuddy</span>
+            </div>
+
+        </div>
+        <div class="nav-center">
+            <div class="timer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                </svg>
+                <span id="timer-display">44:31</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="nav-icon-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                    </path>
+                </svg>
+            </button>
+            <button class="end-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                End
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Center - Code Editor -->
+        <main class="editor-container">
+            <!-- Editor Header -->
+            <div class="editor-header">
+                <div class="file-tabs">
+                    <button class="file-tab active">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="16,18 22,12 16,6"></polyline>
+                            <polyline points="8,6 2,12 8,18"></polyline>
+                        </svg>
+                        solution.py
+                    </button>
+
+                </div>
+                <div class="editor-actions">
+                    <div class="language-selector" id="language-selector">
+                        <button class="language-btn" id="language-btn">
+                            <span class="lang-icon"></span>
+                            <span class="lang-name" id="lang-name">Python 3</span>
+                            <svg class="select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="language-dropdown" id="language-dropdown">
+                            <div class="dropdown-item active" data-value="python" data-icon="">Python 3</div>
+                            <div class="dropdown-item" data-value="javascript" data-icon="">JavaScript</div>
+                            <div class="dropdown-item" data-value="java" data-icon="">Java</div>
+                            <div class="dropdown-item" data-value="cpp" data-icon="">C++</div>
+                            <div class="dropdown-item" data-value="c" data-icon="">C</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" title="Reset Code">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="1,4 1,10 7,10"></polyline>
+                            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                        </svg>
+                    </button>
+
+                    <button class="action-btn more-btn" title="More Options">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="1"></circle>
+                            <circle cx="12" cy="5" r="1"></circle>
+                            <circle cx="12" cy="19" r="1"></circle>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Code Editor Area -->
+            <div class="code-editor" id="monaco-editor-container"></div>
+
+            <!-- Editor Footer -->
+            <div class="editor-footer">
+                <div class="footer-left">
+                    <span class="status-indicator">
+                        <span class="status-dot"></span>
+                        Ready
+                    </span>
+                </div>
+                <div class="footer-right">
+                    <button class="run-btn" id="run-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5,3 19,12 5,21 5,3"></polygon>
+                        </svg>
+                        Run Code
+                    </button>
+                    <button class="submit-btn" id="submit-btn">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                        Submit
+                    </button>
+                </div>
+            </div>
+
+            <!-- Output Panel -->
+            <div class="output-panel" id="output-panel">
+                <div class="resize-handle" id="resize-handle">
+                    <div class="resize-bar"></div>
+                </div>
+                <div class="output-header">
+                    <span>Output</span>
+                    <button class="close-output" id="close-output">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="output-content" id="output-content">
+                    <pre></pre>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar - Problem Description -->
+        <aside class="right-sidebar">
+            <div class="problem-header">
+                <h2 class="problem-title">Two Sum</h2>
+                <span class="difficulty-badge medium">medium</span>
+            </div>
+
+            <div class="problem-content">
+                <p>Given an array of integers <code>nums</code> and an integer <code>target</code>, return indices of
+                    the two numbers such that they add up to <code>target</code>.</p>
+
+                <p>You may assume that each input would have <strong>*exactly one solution*</strong>, and you may not
+                    use the same element twice.</p>
+
+                <p>You can return the answer in any order.</p>
+
+                <div class="example-box">
+                    <div class="example-input">
+                        <span class="label">Input:</span>
+                        <code>nums = [2,7,11,15], target = 9</code>
+                    </div>
+                    <div class="example-output">
+                        <span class="label">Output:</span>
+                        <code>[0,1]</code>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-input">
+                        <span class="label">Input:</span>
+                        <code>nums = [3,2,4], target = 6</code>
+                    </div>
+                    <div class="example-output">
+                        <span class="label">Output:</span>
+                        <code>[1,2]</code>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div class="example-input">
+                        <span class="label">Input:</span>
+                        <code>nums = [3,3], target = 6</code>
+                    </div>
+                    <div class="example-output">
+                        <span class="label">Output:</span>
+                        <code>[0,1]</code>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
