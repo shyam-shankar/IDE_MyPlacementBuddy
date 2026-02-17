@@ -173,7 +173,7 @@ body {
 
 .main-container {
     display: grid;
-    grid-template-columns: 1fr 340px;
+    grid-template-columns: 340px 1fr;
     height: calc(100vh - 56px)
 }
 
@@ -844,11 +844,11 @@ body {
     white-space: pre-wrap
 }
 
-.right-sidebar {
+.left-sidebar-problem {
     display: flex;
     flex-direction: column;
     background: var(--bg-secondary);
-    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
     overflow-y: auto
 }
 
@@ -946,7 +946,7 @@ body {
 
 @media(max-width:1200px) {
     .main-container {
-        grid-template-columns: 200px 1fr 280px
+        grid-template-columns: 280px 1fr
     }
 }
 
@@ -955,8 +955,7 @@ body {
         grid-template-columns: 1fr
     }
 
-    .left-sidebar,
-    .right-sidebar {
+    .left-sidebar-problem {
         display: none
     }
 }

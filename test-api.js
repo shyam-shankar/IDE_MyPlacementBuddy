@@ -1,5 +1,3 @@
-// Test the Judge0 API endpoint
-// Run this with: node test-api.js
 
 const testEndpoint = async () => {
     console.log('Testing Judge0 API endpoint...\n');
