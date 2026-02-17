@@ -40,6 +40,7 @@ function initApp() {
     const closeOutput = document.getElementById('close-output');
     const timerDisplay = document.getElementById('timer-display');
     const resizeHandle = document.getElementById('resize-handle');
+    const resetBtn = document.getElementById('reset-btn');
 
     const testCases = {
         visible: [
@@ -410,9 +411,7 @@ int main() {
             item.classList.toggle('active', item.dataset.value === lang);
         });
 
-        const fileTab = document.querySelector('.file-tab.active');
-        const extensions = { python: 'py', javascript: 'js', java: 'java', cpp: 'cpp', c: 'c' };
-        fileTab.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16,18 22,12 16,6"></polyline><polyline points="8,6 2,12 8,18"></polyline></svg>solution.${extensions[lang] || 'txt'}`;
+
 
         languageSelector.classList.remove('open');
     }
@@ -439,6 +438,12 @@ int main() {
 
     runBtn.addEventListener('click', () => runTests(false));
     submitBtn.addEventListener('click', () => runTests(true));
+
+    resetBtn.addEventListener('click', () => {
+        if (editor) {
+            editor.setValue(getTemplate(currentLanguage));
+        }
+    });
 
     closeOutput.addEventListener('click', () => {
         outputPanel.classList.remove('visible');
